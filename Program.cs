@@ -34,6 +34,35 @@ string num1Ingresado, num2Ingresado;
 Console.WriteLine("Determinar maximo y minimo de 2 numeros:");
 Console.WriteLine("Ingrese el 1er numero");
 num1Ingresado = Console.ReadLine();
-
+if (double.TryParse(num1Ingresado, out double num1Convertido))
+{
+    Console.WriteLine("Ingrese el 2do numero");
+    num2Ingresado = Console.ReadLine();
+    if (double.TryParse(num2Ingresado, out double num2Convertido))
+    {
+        Console.WriteLine($"Los numeros ingresados son: {num1Convertido} y {num2Convertido}");
+        if (num1Convertido > num2Convertido)
+        {
+            Console.WriteLine($"El maximo es {num1Convertido}");
+            Console.WriteLine($"El minimo es {num2Convertido}");
+        }
+        else if (num1Convertido == num2Convertido)
+        {
+            Console.WriteLine("Los numeros ingresados son iguales");
+        }
+        else
+        {
+            Console.WriteLine($"El maximo es {num2Convertido}");
+            Console.WriteLine($"El minimo es {num1Convertido}");
+        }
+    }else
+    {
+        Console.WriteLine("Error. Ingrese un numero correcto");        
+    }
+}
+else
+{
+    Console.WriteLine("Error. Ingrese un numero correcto");
+}
 Console.WriteLine();
 Console.WriteLine("****** Calculadora Finalizada ******");
